@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Seúl - Tu Puente a la Cultura Coreana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #403CED;
+            --lila: #A798FF;
+            --rosa: #FFC8C3;
+            --rojo: #FE7188;
+            --blanco: #F6F6F6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--azul) 0%, #5651F0 100%);
+            color: var(--blanco);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--blanco);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+        .tagline {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            color: var(--rosa);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--blanco);
+            border-radius: 3rem 3rem 0 0;
+            padding: 3rem 1.5rem 2rem;
+            margin-top: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero-subtitle {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--rojo);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .hero-description {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            background: linear-gradient(135deg, var(--lila) 0%, var(--rosa) 100%);
+            padding: 2.5rem 1.5rem;
+            margin: 2rem 0;
+        }
+        .section-title {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--azul);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .mission-box {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .mission-box h3 {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            color: var(--azul);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        .mission-box p {
+            color: #444;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* What We Offer */
+        .offer-section {
+            background: var(--blanco);
+            padding: 2.5rem 1.5rem;
+        }
+        .offer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .offer-card {
+            background: linear-gradient(135deg, var(--rosa) 0%, #FFD8D3 100%);
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .offer-card:hover {
+            transform: translateY(-5px);
+        }
+        .offer-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+        }
+        .offer-text {
+            color: var(--azul);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: var(--azul);
+            padding: 2.5rem 1.5rem;
+            color: var(--blanco);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .value-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border-left: 4px solid var(--rojo);
+        }
+        .value-item h4 {
+            color: var(--rosa);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .value-item p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Teacher Section */
+        .teacher-section {
+            background: var(--blanco);
+            padding: 2.5rem 1.5rem;
+        }
+        .teacher-intro {
+            text-align: center;
+            color: #444;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .video-container {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            background: #000;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--lila) 0%, var(--rosa) 100%);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .video-placeholder:hover {
+            transform: scale(1.02);
+        }
+        .video-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .video-text {
+            color: var(--azul);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .video-subtext {
+            color: var(--azul);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .teacher-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--azul);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .highlight-icon {
+            font-size: 1.8rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--rojo) 0%, #FF8A9E 100%);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .cta-btn {
+            background: var(--blanco);
+            color: var(--azul);
+            border: none;
+            border-radius: 3rem;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer Section */
+        .footer-section {
+            background: var(--azul);
+            padding: 2.5rem 1.5rem 2rem;
+            text-align: center;
+            color: var(--blanco);
+        }
+        .footer-title {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rosa);
+            margin-bottom: 1.5rem;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            transition: background 0.3s ease;
+        }
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .contact-icon {
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+        }
+        .instagram-icon {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+        }
+        .contact-link {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .contact-link:hover {
+            color: var(--rosa);
+        }
+        .footer-text {
+            color: var(--lila);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .offer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-info {
+                max-width: 600px;
+            }
+        }
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ACADEMIA SEÚL</div>
+        <div class="tagline">Hablando Coreano 🌸</div>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">Descubre Corea de Manera Divertida y Auténtica</h1>
+        <p class="hero-subtitle">Idioma · K-pop · Historia · Filosofía · Tradiciones</p>
+        <p class="hero-description">
+            Un espacio vibrante y acogedor donde estudiantes latinoamericanos exploran y abrazan la cultura coreana a través de experiencias de aprendizaje accesibles y emocionantes que celebran ambas tradiciones.
+        </p>
+    </section>
+
+    <section class="mission-section">
+        <h2 class="section-title">Nuestra Esencia</h2>
+        
+        <div class="mission-box">
+            <h3>🎯 Misión</h3>
+            <p>Crear un espacio vibrante y acogedor donde estudiantes latinoamericanos descubran y abracen la cultura coreana a través de experiencias de aprendizaje dinámicas, accesibles y emocionantes.</p>
+        </div>
+        
+        <div class="mission-box">
+            <h3>✨ Visión</h3>
+            <p>Convertirnos en el puente cultural líder entre América Latina y Corea, fomentando comprensión, aprecio y conexiones duraderas a través de una educación cultural alegre y completa.</p>
+        </div>
+    </section>
+
+    <section class="offer-section">
+        <h2 class="section-title">¿Qué Aprenderás?</h2>
+        
+        <div class="offer-grid">
+            <div class="offer-card">
+                <div class="offer-icon">🗣️</div>
+                <div class="offer-text">Idioma coreano de forma simple y efectiva</div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-icon">🎵</div>
+                <div class="offer-text">K-pop y cultura contemporánea</div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-icon">📚</div>
+                <div class="offer-text">Historia y filosofía coreana</div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-icon">🙏</div>
+                <div class="offer-text">Religión y espiritualidad</div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-icon">🎎</div>
+                <div class="offer-text">Tradiciones y costumbres auténticas</div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-icon">🌏</div>
+                <div class="offer-text">Conexiones culturales significativas</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="teacher-section">
+        <h2 class="section-title">Conoce a Tu Profesor</h2>
+        <p class="teacher-intro">¡Hola! Soy tu guía en esta aventura cultural. Descubre más sobre mí y mi pasión por compartir la cultura coreana contigo.</p>
+        
+        <div class="video-container">
+            <div class="video-placeholder">
+                <div class="video-icon">🎬</div>
+                <p class="video-text">Video de Introducción</p>
+                <p class="video-subtext">Haz clic para reproducir</p>
+            </div>
+            <!-- Para agregar tu video, reemplaza el contenido del video-container con:
+            <iframe width="100%" height="100%" src="TU_URL_DE_YOUTUBE_O_VIMEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            -->
+        </div>
+        
+        <div class="teacher-highlights">
+            <div class="highlight-item">
+                <span class="highlight-icon">🎓</span>
+                <span>Experiencia auténtica</span>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">❤️</span>
+                <span>Pasión por enseñar</span>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">🌟</span>
+                <span>Métodos innovadores</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2 class="section-title">Nuestros Valores</h2>
+        
+        <div class="values-grid">
+            <div class="value-item">
+                <h4>🎉 Alegría y Diversión</h4>
+                <p>Aprender debe ser emocionante, no intimidante</p>
+            </div>
+            
+            <div class="value-item">
+                <h4>🤗 Inclusividad</h4>
+                <p>Todos son bienvenidos sin importar su nivel</p>
+            </div>
+            
+            <div class="value-item">
+                <h4>💯 Autenticidad</h4>
+                <p>Interacción directa con personas de raíces coreanas y nativos</p>
+            </div>
+            
+            <div class="value-item">
+                <h4>🌉 Conexión</h4>
+                <p>Construyendo un puente entre Corea y el mundo</p>
+            </div>
+            
+            <div class="value-item">
+                <h4>🎨 Expresión Libre</h4>
+                <p>Libertad para explorar y compartir abiertamente</p>
+            </div>
+            
+            <div class="value-item">
+                <h4>⚡ Simpleza Efectiva</h4>
+                <p>Conceptos complejos enseñados de manera simple</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-title">¿Listo para tu Aventura Coreana?</h2>
+        <p class="cta-text">Únete a nuestra comunidad y comienza a explorar la fascinante cultura de Corea hoy</p>
+        <button class="cta-btn">¡Comenzar Ahora!</button>
+    </section>
+
+    <footer class="footer-section">
+        <h3 class="footer-title">Contáctanos</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <a href="mailto:hola.academiaseul@gmail.com" class="contact-link">hola.academiaseul@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#instagram-gradient)"/>
+                    <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" fill="none"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+                    <defs>
+                        <linearGradient id="instagram-gradient" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#FD5949"/>
+                            <stop offset="50%" stop-color="#D6249F"/>
+                            <stop offset="100%" stop-color="#285AEB"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <a href="https://instagram.com/academiaseul" target="_blank" class="contact-link">@academiaseul</a>
+            </div>
+            
+            <div class="contact-item">
+                <span class="contact-icon">💬</span>
+                <a href="https://wa.me/56942115562" target="_blank" class="contact-link">+56 9 4211 5562</a>
+            </div>
+        </div>
+        <p class="footer-text">© 2024 Academia Seúl - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

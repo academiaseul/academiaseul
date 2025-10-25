@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Seúl - Inscripción</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #403CED;
+            --lila: #A798FF;
+            --rosa: #FFC8C3;
+            --rojo: #FE7188;
+            --blanco: #F6F6F6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--azul) 0%, #5651F0 100%);
+            color: var(--blanco);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--blanco);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .logo:hover {
+            color: var(--rosa);
+        }
+        .tagline {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            color: var(--rosa);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background: var(--rosa);
+            color: var(--azul);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: var(--blanco);
+            border-radius: 3rem 3rem 0 0;
+            padding: 3rem 1.5rem;
+            margin-top: 1rem;
+            min-height: 70vh;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            color: var(--rojo);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-intro {
+            background: linear-gradient(135deg, var(--lila) 0%, var(--rosa) 100%);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            color: var(--azul);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--azul);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 3px solid var(--lila);
+            border-radius: 1rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--azul);
+            box-shadow: 0 0 0 4px rgba(64, 60, 237, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #999;
+        }
+        
+        .required {
+            color: var(--rojo);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--rojo) 0%, #FF8A9E 100%);
+            color: var(--blanco);
+            border: none;
+            border-radius: 2rem;
+            padding: 1.3rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(254, 113, 136, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(254, 113, 136, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .info-box {
+            background: var(--rosa);
+            padding: 1.2rem;
+            border-radius: 1rem;
+            color: var(--azul);
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer-section {
+            background: var(--azul);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--blanco);
+            margin-top: 3rem;
+        }
+        
+        .footer-text {
+            color: var(--lila);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2rem;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">ACADEMIA SEÚL</a>
+        <div class="tagline">Hablando Coreano 🌸</div>
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+    </header>
+
+    <section class="main-content">
+        <div class="form-container">
+            <h1 class="page-title">¡Comienza Tu Aventura! 🎉</h1>
+            <p class="page-subtitle">Únete a nuestra comunidad coreana</p>
+            
+            <div class="form-intro">
+                ¡Estás a un paso de descubrir la magia de la cultura coreana! Completa este formulario y nos pondremos en contacto contigo pronto.
+            </div>
+            
+            <form id="inscriptionForm">
+                <div class="form-group">
+                    <label class="form-label" for="nombre">
+                        Nombre Completo <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        class="form-input" 
+                        placeholder="Ej: María González"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">
+                        Correo Electrónico <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="Ej: maria@ejemplo.com"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="telefono">
+                        Número de Teléfono <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="telefono" 
+                        name="telefono" 
+                        class="form-input" 
+                        placeholder="Ej: +56 9 1234 5678"
+                        required
+                    >
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    ✨ Enviar Solicitud ✨
+                </button>
+                
+                <div id="successMessage" class="success-message">
+                    <h3>¡Gracias por tu interés! 🎊</h3>
+                    <p>Hemos recibido tu información. Nos pondremos en contacto contigo pronto para comenzar tu aventura coreana.</p>
+                </div>
+            </form>
+            
+            <div class="info-box">
+                💌 Te responderemos en menos de 24 horas
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <p class="footer-text">© 2024 Academia Seúl - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            
+            // Deshabilitar el botón mientras se envía
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // URL de tu Google Apps Script Web App
+            // IMPORTANTE: Reemplaza esta URL con la URL de tu script de Google Apps
+            const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
+            
+            // Crear FormData
+            const formData = new FormData();
+            formData.append('nombre', nombre);
+            formData.append('email', email);
+            formData.append('telefono', telefono);
+            formData.append('fecha', new Date().toLocaleString('es-CL'));
+            
+            // Enviar datos
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Éxito:', data);
+                // Mostrar mensaje de éxito
+                document.getElementById('successMessage').classList.add('show');
+                // Limpiar el formulario
+                document.getElementById('inscriptionForm').reset();
+                // Reactivar el botón
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✨ Enviar Solicitud ✨';
+                // Ocultar el mensaje después de 8 segundos
+                setTimeout(function() {
+                    document.getElementById('successMessage').classList.remove('show');
+                }, 8000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente o contáctanos directamente por WhatsApp.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✨ Enviar Solicitud ✨';
+            });
+        });
+    </script>
+</body>
+</html>
